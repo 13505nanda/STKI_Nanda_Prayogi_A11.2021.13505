@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import nltk
 nltk.download('punkt')
-nltk.download('corpus_name')
+nltk.download('stopword')
 import re
 import contractions
 import numpy as np

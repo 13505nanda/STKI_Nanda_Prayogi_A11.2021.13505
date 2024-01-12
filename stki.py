@@ -2,9 +2,6 @@
 import streamlit as st
 import pandas as pd
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
-from nltk.corpus import stopwords
 import re
 import contractions
 import numpy as np

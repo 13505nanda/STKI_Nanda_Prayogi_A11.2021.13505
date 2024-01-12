@@ -16,17 +16,17 @@ true_df = pd.read_csv('dataset_stki.csv')
 stop_words = nltk.corpus.stopwords.words('english')
 
 def normalize_document(doc):
-    # Ensure document is a string
-    doc = str(doc)
-    # Convert to lowercase
-    doc = doc.lower()
-    # Remove punctuation and special characters
     doc = re.sub(r'[^a-zA-Z0-9\s]', '', doc, re.I|re.A)
+    doc = doc.lower()
+    doc = doc.strip()
+    doc = contractions.fix(doc)
+    tokens = nltk.word_tokenize(doc)
+    filtered_tokens = [token for token in tokens if token not in stop_words]
+    doc = ' '.join(filtered_tokens)
     return doc
 
 normalize_corpus = np.vectorize(normalize_document)
-norm_corpus = normalize_corpus([item[0] if isinstance(item[0], str) else '' for item in list(true_df['description']) if isinstance(item[0], str)])
-print(norm_corpus)
+norm_corpus = normalize_corpus(list(true_df['description']))
 
 # TF-IDF vectorization
 tf = TfidfVectorizer(ngram_range=(1, 2), min_df=2)

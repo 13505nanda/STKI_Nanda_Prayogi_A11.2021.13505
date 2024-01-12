@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import nltk
+nltk.download('stopwords')
 import re
 import contractions
 from sklearn.feature_extraction.text import TfidfVectorizer

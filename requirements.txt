@@ -4,5 +4,6 @@ streamlit
 scikit-learn
 pip
 nltk
+stopword
 contractions
 gensim

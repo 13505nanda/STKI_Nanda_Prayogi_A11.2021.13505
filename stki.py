@@ -1,7 +1,7 @@
 #LIBRARY
 import streamlit as st
 import pandas as pd
-import nltk
+from nltk.corpus import stopwords
 import re
 import contractions
 import numpy as np
